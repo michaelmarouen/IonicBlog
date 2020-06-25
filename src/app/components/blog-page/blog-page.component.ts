@@ -12,4 +12,8 @@ export class BlogPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  detailArticle(){
+    console.log(`Détails article`)
+  }
+
 }

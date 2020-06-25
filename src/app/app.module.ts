@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ItemPageComponent } from './components/item-page/item-page.component';
+import { EditPageComponent } from './components/edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogPageComponent,
-    ItemPageComponent
+    ItemPageComponent,
+    EditPageComponent
   ],
   imports: [
     BrowserModule,
