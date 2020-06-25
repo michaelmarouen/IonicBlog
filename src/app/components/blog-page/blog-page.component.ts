@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService} from 'src/app/service/blog/blog.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-blog-page',
@@ -7,13 +8,15 @@ import { BlogService} from 'src/app/service/blog/blog.service';
   styleUrls: ['./blog-page.component.scss']
 })
 export class BlogPageComponent implements OnInit {
-  reponse;
+
+  allPosts$ : Observable<any>;  
   constructor(
     private _apiBlogService : BlogService
   ) { }
 
   ngOnInit(): void {
-    this.reponse = this._apiBlogService.load()
+    this._apiBlogService.load()
+    this.allPosts$ = this._apiBlogService.data$;
   }
 
   detailArticle(){

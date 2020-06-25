@@ -4,13 +4,20 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-card (click)="detailArticle()">
-        <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
-        </ion-card-content>
-    </ion-card>
+    <!--<pre>{{allPosts$ | async | json}}</pre>-->
+    <ion-grid >
+        <ion-row *ngFor="let post of (allPosts$|async)">
+            <ion-col>
+                <ion-card [routerLink]="post.id">
+                    <ion-card-header>
+                        <ion-card-title color="primary">{{post.title}}</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        {{post.body}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    
 </ion-content>  
