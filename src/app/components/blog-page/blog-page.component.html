@@ -5,8 +5,8 @@
 </ion-header>
 <ion-content>
     <!--<pre>{{allPosts$ | async | json}}</pre>-->
-    <ion-grid >
-        <ion-row *ngFor="let post of (allPosts$|async)">
+    <ion-grid *ngIf="(allPosts$|async) as allPost">
+        <ion-row *ngFor="let post of allPost.slice(0,max)">
             <ion-col>
                 <ion-card [routerLink]="post.id">
                     <ion-card-header>
@@ -19,5 +19,7 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    
+    <div class="ion-text-center">
+        <ion-button *ngIf="(allPosts$|async)?.length >=max" (click)="loadMore()"><ion-icon name="add-outline"></ion-icon></ion-button>
+    </div>
 </ion-content>  

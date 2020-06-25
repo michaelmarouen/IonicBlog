@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./blog-page.component.scss']
 })
 export class BlogPageComponent implements OnInit {
-
+  max : number = 10;
   allPosts$ : Observable<any>;  
+
   constructor(
     private _apiBlogService : BlogService
   ) { }
@@ -17,6 +18,10 @@ export class BlogPageComponent implements OnInit {
   ngOnInit(): void {
     this._apiBlogService.load()
     this.allPosts$ = this._apiBlogService.data$;
+  }
+
+  loadMore(){
+    this.max = this.max + 10
   }
 
 }
