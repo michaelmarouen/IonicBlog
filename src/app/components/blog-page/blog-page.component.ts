@@ -19,8 +19,4 @@ export class BlogPageComponent implements OnInit {
     this.allPosts$ = this._apiBlogService.data$;
   }
 
-  detailArticle(){
-    console.log(`Détails article`)
-  }
-
 }
