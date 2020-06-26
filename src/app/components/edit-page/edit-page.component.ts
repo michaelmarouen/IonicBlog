@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-page',
@@ -6,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-page.component.scss']
 })
 export class EditPageComponent implements OnInit {
+  public blogForm: FormGroup
 
-  constructor() { }
+  constructor(fb:FormBuilder) {
+    this.blogForm = fb.group({
+      id: [null],
+      title:[''],
+      body:[''],
+      userId:[null]
+   })
+  }
 
   ngOnInit(): void {
   }

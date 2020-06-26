@@ -13,6 +13,7 @@ const routes: Routes = [
         {path:':id/edit', component: EditPageComponent}
       ]
   },
+  {path:'new', component: EditPageComponent},
   {
     path: '',
     redirectTo: 'blog',
