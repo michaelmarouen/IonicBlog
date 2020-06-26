@@ -1,1 +1,34 @@
-<p>item-page works!</p>
+<ion-content>
+    <ion-grid *ngIf="post && auteur && comments">
+        <ion-row>
+            <ion-col>       
+                <ion-card>
+                    <ion-card-title color="primary" class="ion-padding-bottom">
+                        {{post[0]?.title}}
+                    </ion-card-title>
+                    <ion-card-subtitle  color="primary">publié par :<a href="mailto:{{auteur[0]?.email}}">{{auteur[0]?.name}}</a></ion-card-subtitle>
+                    <ion-card-content>
+                        {{post[0]?.body}}
+                    </ion-card-content>
+                </ion-card>      
+                <ion-list>                 
+                    <ion-list-header>
+                        Commentaires:
+                    </ion-list-header> 
+                    <ion-item *ngFor="let comment of comments">
+                        <ion-card>
+                            <ion-card-title color="primary" class="ion-padding-bottom">
+                                {{comment?.name}}
+                            </ion-card-title>
+                            <ion-card-subtitle>{{comment?.email}}</ion-card-subtitle>
+                            <ion-card-content class="ion-no-padding">
+                                {{comment?.body}}
+                            </ion-card-content>
+                        </ion-card> 
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    
+</ion-content>
