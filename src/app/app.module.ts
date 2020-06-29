@@ -11,6 +11,9 @@ import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ItemPageComponent } from './components/item-page/item-page.component';
 import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { UpdateNotificationComponent } from './components/update-notification/update-notification.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,16 @@ import { HeaderComponent } from './components/header/header.component';
     BlogPageComponent,
     ItemPageComponent,
     EditPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdateNotificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,    
     IonicModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     
   ],
   providers: [],
